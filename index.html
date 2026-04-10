@@ -7,7 +7,8 @@
 <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
 
 <style>
-body {PRALMYX LOGO.png
+body {
+  PRALMYX LOGO.png
   margin:0;
   font-family:Arial;
   color:white;
@@ -124,42 +125,25 @@ iframe {
 </section>
 
 <script>
-let provider;
-let signer;
-
-async function connectWallet() {
-  if (window.ethereum) {
-    provider = new ethers.providers.Web3Provider(window.ethereum);
-    await provider.send("eth_requestAccounts", []);
-    signer = provider.getSigner();
-    alert("Wallet connected 🔥");
-  } else {
-    alert("Install MetaMask");
-  }
-}
-
-async function buyToken() {
-  alert("Redirecting to PancakeSwap...");
-  window.open("https://pancakeswap.finance/swap?outputCurrency=0x557aA6EDC2b7808e8304A18c4Cf62B2e56620211");
-}
-
-// Precio real
 async function loadData() {
   try {
     const res = await fetch("https://api.dexscreener.com/latest/dex/pairs/bsc/0x813f732fd927f2889ddd5d66103063c0166d9a0c");
     const data = await res.json();
 
-    document.getElementById("price").innerText = data.pair.priceUsd + " USD";
-    document.getElementById("volume").innerText = "$" + data.pair.volume.h24;
-  } catch(e) {
-    document.getElementById("price").innerText = "N/A";
-    document.getElementById("volume").innerText = "N/A";
+    if (data.pair) {
+      document.getElementById("price").innerText = data.pair.priceUsd || "0.000000";
+      document.getElementById("volume").innerText = "$" + (data.pair.volume.h24 || "0");
+    } else {
+      document.getElementById("price").innerText = "0.000000";
+      document.getElementById("volume").innerText = "$0";
+    }
+
+  } catch (e) {
+    document.getElementById("price").innerText = "0.000000";
+    document.getElementById("volume").innerText = "$0";
   }
 }
 
 loadData();
 setInterval(loadData, 10000);
 </script>
-
-</body>
-</html>
