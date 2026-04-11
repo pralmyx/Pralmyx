@@ -8,7 +8,6 @@
 
 <style>
 body {
-  PRALMYX LOGO.png
   margin:0;
   font-family:Arial;
   color:white;
@@ -27,9 +26,21 @@ header {
   display:flex;
   justify-content:space-between;
   padding:20px 40px;
+  align-items:center;
 }
 
 .logo { width:60px; }
+
+.btn {
+  background:#ff4df0;
+  padding:12px 20px;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
+  margin:5px;
+  border:none;
+  cursor:pointer;
+}
 
 .hero {
   text-align:center;
@@ -40,17 +51,6 @@ header {
   font-size:50px;
   color:#ff4df0;
   text-shadow:0 0 20px #ff4df0;
-}
-
-.btn {
-  background:#ff4df0;
-  padding:15px 25px;
-  border-radius:10px;
-  text-decoration:none;
-  color:white;
-  margin:10px;
-  cursor:pointer;
-  border:none;
 }
 
 .stats {
@@ -85,6 +85,7 @@ iframe {
   border-radius:15px;
 }
 </style>
+
 </head>
 
 <body>
@@ -113,7 +114,7 @@ iframe {
 
 <div class="card">
 <h2>🔥 About</h2>
-<p>Pralmyx (PMA) is a decentralized token focused on liquidity, growth, and community expansion.</p>
+<p>Pralmyx (PMA) is a decentralized token built on BNB Chain focused on liquidity growth, transparency, and community-driven expansion.</p>
 </div>
 
 <div class="card">
@@ -122,9 +123,49 @@ iframe {
 <p>✔ Verified Contract</p>
 </div>
 
+<div class="card">
+<h2>🌐 Community</h2>
+<p>
+<a class="btn" href="https://x.com/PralmyxToken" target="_blank">Follow on X</a>
+</p>
+</div>
+
+<div class="card">
+<h2>📄 Whitepaper</h2>
+<p>
+Pralmyx (PMA) is a decentralized cryptocurrency built on the BNB Chain with a vision of creating a strong, transparent, and community-driven ecosystem.
+</p>
+<p>
+The project focuses on sustainable liquidity growth, fair distribution, and long-term development. Pralmyx aims to establish trust by maintaining transparency, ensuring contract security, and gradually expanding its community.
+</p>
+<p>
+Future plans include marketing expansion, partnerships, ecosystem utilities, and continuous development to increase adoption and long-term value.
+</p>
+</div>
+
 </section>
 
 <script>
+// WALLET FIX
+async function connectWallet() {
+  if (typeof window.ethereum !== "undefined") {
+    try {
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+      alert("Wallet connected 🔥");
+    } catch (error) {
+      alert("Connection rejected");
+    }
+  } else {
+    alert("Install MetaMask");
+  }
+}
+
+// BOTON COMPRA FUNCIONAL
+function buyToken() {
+  window.open("https://pancakeswap.finance/swap?outputCurrency=0x557aA6EDC2b7808e8304A18c4Cf62B2e56620211");
+}
+
+// DATOS REALES
 async function loadData() {
   try {
     const res = await fetch("https://api.dexscreener.com/latest/dex/pairs/bsc/0x813f732fd927f2889ddd5d66103063c0166d9a0c");
@@ -147,3 +188,6 @@ async function loadData() {
 loadData();
 setInterval(loadData, 10000);
 </script>
+
+</body>
+</html>
