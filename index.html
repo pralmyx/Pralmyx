@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <title>Pralmyx (PMA)</title>
 
-<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
-
 <style>
 body {
-  PRALMYX LOGO.png
   margin:0;
   font-family:Arial;
   color:white;
-  background:linear-gradient(-45deg,#0b0b0f,#1a0f1f,#0b0b0f);
+  background:linear-gradient(-45deg,#0b0b0f,#2a0a1f,#0b0b0f);
   background-size:400% 400%;
   animation:bg 10s infinite;
 }
@@ -30,17 +27,24 @@ header {
   align-items:center;
 }
 
-.logo { width:60px; }
+.logo { width:70px; }
 
 .btn {
-  background:#ff4df0;
-  padding:12px 20px;
-  border-radius:10px;
+  background:#800020;
+  padding:14px 25px;
+  border-radius:12px;
   text-decoration:none;
   color:white;
-  margin:5px;
+  margin:8px;
   border:none;
   cursor:pointer;
+  box-shadow:0 0 15px #800020;
+  transition:0.3s;
+}
+
+.btn:hover {
+  transform:scale(1.1);
+  box-shadow:0 0 25px #800020;
 }
 
 .hero {
@@ -49,9 +53,9 @@ header {
 }
 
 .hero h1 {
-  font-size:50px;
-  color:#ff4df0;
-  text-shadow:0 0 20px #ff4df0;
+  font-size:55px;
+  color:#800020;
+  text-shadow:0 0 20px #800020;
 }
 
 .stats {
@@ -62,9 +66,9 @@ header {
 }
 
 .stat {
-  background:#15151d;
+  background:#1a0a12;
   padding:15px;
-  border-radius:10px;
+  border-radius:12px;
 }
 
 .section {
@@ -74,10 +78,11 @@ header {
 }
 
 .card {
-  background:#15151d;
+  background:#1a0a12;
   padding:20px;
   margin:20px 0;
-  border-radius:12px;
+  border-radius:15px;
+  box-shadow:0 0 10px #000;
 }
 
 iframe {
@@ -86,7 +91,6 @@ iframe {
   border-radius:15px;
 }
 </style>
-
 </head>
 
 <body>
@@ -98,14 +102,18 @@ iframe {
 
 <section class="hero">
   <h1>🚀 PRALMYX (PMA)</h1>
-  <p>Decentralized token on BNB Chain</p>
+  <p>Next-gen token on BNB Chain</p>
 
   <div class="stats">
     <div class="stat">💰 Price: <span id="price">Loading...</span></div>
     <div class="stat">📊 Volume: <span id="volume">Loading...</span></div>
   </div>
 
-  <button class="btn" onclick="buyToken()">Buy PMA</button>
+  <!-- BOTÓN CORREGIDO -->
+  <a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x557aA6EDC2b7808e8304A18c4Cf62B2e56620211" target="_blank">
+    Buy PMA
+  </a>
+
 </section>
 
 <section class="section">
@@ -115,45 +123,28 @@ iframe {
 
 <div class="card">
 <h2>🔥 About</h2>
-<p>Pralmyx (PMA) is a decentralized token built on BNB Chain focused on liquidity growth, transparency, and community-driven expansion.</p>
-</div>
-
-<div class="card">
-<h2>🔒 Security</h2>
-<p>✔ Liquidity Locked</p>
-<p>✔ Verified Contract</p>
+<p>Pralmyx (PMA) is a decentralized token focused on growth, liquidity and community expansion.</p>
 </div>
 
 <div class="card">
 <h2>🌐 Community</h2>
-<p>
 <a class="btn" href="https://x.com/PralmyxToken" target="_blank">Follow on X</a>
-</p>
 </div>
 
 <div class="card">
 <h2>📄 Whitepaper</h2>
-<p>
-Pralmyx (PMA) is a decentralized cryptocurrency built on the BNB Chain with a vision of creating a strong, transparent, and community-driven ecosystem.
-</p>
-<p>
-The project focuses on sustainable liquidity growth, fair distribution, and long-term development. Pralmyx aims to establish trust by maintaining transparency, ensuring contract security, and gradually expanding its community.
-</p>
-<p>
-Future plans include marketing expansion, partnerships, ecosystem utilities, and continuous development to increase adoption and long-term value.
-</p>
+<p>Pralmyx is a decentralized token designed for long-term growth, transparency and strong community support within the BNB Chain ecosystem.</p>
 </div>
 
 </section>
 
 <script>
-// WALLET FIX
 async function connectWallet() {
   if (typeof window.ethereum !== "undefined") {
     try {
       await window.ethereum.request({ method: "eth_requestAccounts" });
       alert("Wallet connected 🔥");
-    } catch (error) {
+    } catch {
       alert("Connection rejected");
     }
   } else {
@@ -161,12 +152,6 @@ async function connectWallet() {
   }
 }
 
-// BOTON COMPRA FUNCIONAL
-function buyToken() {
-  window.open("https://pancakeswap.finance/swap?outputCurrency=0x557aA6EDC2b7808e8304A18c4Cf62B2e56620211");
-}
-
-// DATOS REALES
 async function loadData() {
   try {
     const res = await fetch("https://api.dexscreener.com/latest/dex/pairs/bsc/0x813f732fd927f2889ddd5d66103063c0166d9a0c");
@@ -175,15 +160,8 @@ async function loadData() {
     if (data.pair) {
       document.getElementById("price").innerText = data.pair.priceUsd || "0.000000";
       document.getElementById("volume").innerText = "$" + (data.pair.volume.h24 || "0");
-    } else {
-      document.getElementById("price").innerText = "0.000000";
-      document.getElementById("volume").innerText = "$0";
     }
-
-  } catch (e) {
-    document.getElementById("price").innerText = "0.000000";
-    document.getElementById("volume").innerText = "$0";
-  }
+  } catch {}
 }
 
 loadData();
