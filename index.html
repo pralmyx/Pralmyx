@@ -6,8 +6,7 @@
 
 <style>
 body {
-  PRALMYX LOGO.png
-  background: #0b0b0f;
+  background: linear-gradient(135deg, #0b0b0f, #1a0b1a);
   color: white;
   font-family: Arial;
   text-align: center;
@@ -16,11 +15,11 @@ body {
 
 h1 {
   color: #ff4df0;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
   padding: 20px;
 }
@@ -29,7 +28,8 @@ h1 {
   background: #15151d;
   padding: 20px;
   margin: 20px 0;
-  border-radius: 12px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255,77,240,0.2);
 }
 
 .btn {
@@ -47,7 +47,14 @@ h1 {
   background: #d63fd0;
 }
 
-img {
+.chart iframe {
+  width: 100%;
+  height: 400px;
+  border: none;
+  border-radius: 12px;
+}
+
+.logo {
   margin-top: 20px;
 }
 
@@ -62,7 +69,7 @@ footer {
 
 <h1>🚀 PRALMYX (PMA)</h1>
 
-<img src="https://raw.githubusercontent.com/pralmyx/Pralmyx/main/logo.png" width="120">
+<img class="logo" src="https://raw.githubusercontent.com/pralmyx/Pralmyx/main/logo.png" width="120">
 
 <div class="container">
 
@@ -72,12 +79,11 @@ footer {
 
 <a class="btn" href="https://dexscreener.com/bsc/0x813f732fd927f2889ddd5d66103063c0166d9a0c">📊 View Chart</a>
 
-<div class="card">
-<h2>🔥 About</h2>
-<p>
-Pralmyx (PMA) is a decentralized cryptocurrency built on BNB Chain.
-Focused on community growth, transparency, and long-term development.
-</p>
+<a class="btn" onclick="connectWallet()">🔗 Connect Wallet</a>
+
+<div class="card chart">
+<h2>📈 Live Chart</h2>
+<iframe src="https://dexscreener.com/bsc/0x813f732fd927f2889ddd5d66103063c0166d9a0c?embed=1"></iframe>
 </div>
 
 <div class="card">
@@ -90,9 +96,20 @@ Focused on community growth, transparency, and long-term development.
 </div>
 
 <div class="card">
+<h2>📄 Whitepaper</h2>
+<p>
+Pralmyx (PMA) is a decentralized cryptocurrency built on BNB Chain, designed to foster a transparent and community-driven ecosystem.
+
+The project focuses on steady liquidity growth, user participation, and long-term sustainability.
+
+Future plans include expanding the community, increasing market visibility, and exploring additional utilities within the decentralized space.
+</p>
+</div>
+
+<div class="card">
 <h2>🌐 Community</h2>
 
-<a class="btn" href="https://discord.gg/c7R7yGJD">💬 Join Discord</a>
+<a class="btn" href="https://discord.gg/c7R7yGJD">💬 Discord</a>
 
 <a class="btn" href="https://www.reddit.com/user/pralmyx/">👽 Reddit</a>
 
@@ -103,6 +120,12 @@ Focused on community growth, transparency, and long-term development.
 <footer>
 <p>© 2026 Pralmyx</p>
 </footer>
+
+<script>
+function connectWallet() {
+  alert("Wallet connection coming soon 🚀");
+}
+</script>
 
 </body>
 </html>
