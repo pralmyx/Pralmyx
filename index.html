@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <title>Pralmyx (PMA)</title>
 
+<link rel="icon" href="logo.png">
+
 <style>
 body {
-  PRALMYX LOGO.png
   margin:0;
   font-family:Arial;
   color:white;
@@ -103,14 +104,14 @@ iframe {
 
 <section class="hero">
   <h1>🚀 PRALMYX (PMA)</h1>
-  <p>Next-gen token on BNB Chain</p>
+
+  <p>Community-driven token focused on growth and long-term vision.</p>
 
   <div class="stats">
     <div class="stat">💰 Price: <span id="price">Loading...</span></div>
     <div class="stat">📊 Volume: <span id="volume">Loading...</span></div>
   </div>
 
-  <!-- BOTÓN CORREGIDO -->
   <a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x557aA6EDC2b7808e8304A18c4Cf62B2e56620211" target="_blank">
     Buy PMA
   </a>
@@ -120,59 +121,132 @@ iframe {
 <section class="section">
 
 <h2>📈 Live Chart</h2>
+
 <iframe src="https://dexscreener.com/bsc/0x813f732fd927f2889ddd5d66103063c0166d9a0c"></iframe>
 
 <div class="card">
 <h2>🔥 About</h2>
-<p>Pralmyx (PMA) is a decentralized token focused on growth, liquidity and community expansion.</p>
-</div>
 
-<div class="card">
-<h2>🌐 Community</h2>
-<a <div class="card">
-  
-<a class="btn" href="https://x.com/PralmyxD" target="_blank">🐦 X (Twitter)</a>
-
-<a class="btn" href="https://www.reddit.com/user/pralmyx/" target="_blank">👽 Reddit</a>
-
-<a class="btn" href="https://discord.gg/c7R7yGJD" target="_blank">💬 Discord</a>
+<p>
+Pralmyx (PMA) is a decentralized token focused on growth, liquidity and community expansion.
+</p>
 
 </div>
 
 <div class="card">
+
+<h2>🌐 Official Links</h2>
+
+<a class="btn" href="https://x.com/PralmyxD" target="_blank">
+X / Twitter
+</a>
+
+<a class="btn" href="https://t.me/pralmyx1" target="_blank">
+Telegram
+</a>
+
+<a class="btn" href="https://discord.com/channels/1493047238149279786/1493055935059464302" target="_blank">
+Discord
+</a>
+
+<a class="btn" href="https://bscscan.com/token/0x557aA6EDC2b7808e8304A18c4Cf62B2e56620211" target="_blank">
+BscScan
+</a>
+
+<a class="btn" href="https://dexscreener.com/bsc/0x813f732fd927f2889ddd5d66103063c0166d9a0c" target="_blank">
+DexScreener
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>💎 Tokenomics</h2>
+
+<p>Total Supply: 1,000,000,000 PMA</p>
+<p>Network: BNB Chain</p>
+<p>Liquidity Locked 🔒</p>
+
+</div>
+
+<div class="card">
+
+<h2>🚀 Roadmap</h2>
+
+<p>✅ Launch PMA</p>
+<p>✅ Community Creation</p>
+<p>✅ Liquidity Lock</p>
+<p>🔄 Growing Holders</p>
+<p>🔄 Marketing Expansion</p>
+<p>🔄 Future Utilities</p>
+
+</div>
+
+<div class="card">
+
 <h2>📄 Whitepaper</h2>
-<p>Pralmyx is a decentralized token designed for long-term growth, transparency and strong community support within the BNB Chain ecosystem.</p>
+
+<p>
+Pralmyx is a decentralized token designed for long-term growth, transparency and strong community support within the BNB Chain ecosystem.
+</p>
+
 </div>
 
 </section>
 
 <script>
 async function connectWallet() {
+
   if (typeof window.ethereum !== "undefined") {
+
     try {
-      await window.ethereum.request({ method: "eth_requestAccounts" });
+
+      await window.ethereum.request({
+        method: "eth_requestAccounts"
+      });
+
       alert("Wallet connected 🔥");
+
     } catch {
+
       alert("Connection rejected");
+
     }
+
   } else {
+
     alert("Install MetaMask");
+
   }
+
 }
 
 async function loadData() {
+
   try {
-    const res = await fetch("https://api.dexscreener.com/latest/dex/pairs/bsc/0x813f732fd927f2889ddd5d66103063c0166d9a0c");
+
+    const res = await fetch(
+      "https://api.dexscreener.com/latest/dex/pairs/bsc/0x813f732fd927f2889ddd5d66103063c0166d9a0c"
+    );
+
     const data = await res.json();
 
     if (data.pair) {
-      document.getElementById("price").innerText = data.pair.priceUsd || "0.000000";
-      document.getElementById("volume").innerText = "$" + (data.pair.volume.h24 || "0");
+
+      document.getElementById("price").innerText =
+        data.pair.priceUsd || "0.000000";
+
+      document.getElementById("volume").innerText =
+        "$" + (data.pair.volume.h24 || "0");
+
     }
+
   } catch {}
+
 }
 
 loadData();
+
 setInterval(loadData, 10000);
 </script>
 
