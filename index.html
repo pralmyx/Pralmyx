@@ -28,9 +28,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -82,9 +80,7 @@ header {
   transition: .25s;
 }
 
-.nav a:hover {
-  color: #d18ba8;
-}
+.nav a:hover { color: #d18ba8; }
 
 .btn {
   display: inline-flex;
@@ -105,12 +101,6 @@ header {
 .btn:hover {
   background: linear-gradient(135deg,#92284d,#58142e);
   transform: translateY(-2px);
-}
-
-.wallet-status {
-  color: #d9a8bb;
-  font-size: 11px;
-  margin-left: 8px;
 }
 
 /* HERO */
@@ -144,9 +134,7 @@ header {
   text-shadow: 0 3px 25px rgba(163,70,106,.22);
 }
 
-.hero h1 span {
-  color: #bd7793;
-}
+.hero h1 span { color: #bd7793; }
 
 .hero p {
   max-width: 650px;
@@ -230,7 +218,7 @@ header {
   background: #a34b6d;
 }
 
-/* CHART */
+/* LIVE CHART */
 
 .chart-container {
   background: #11080d;
@@ -329,9 +317,7 @@ header {
   font-size: 13px;
 }
 
-.detail-row span:first-child {
-  color: var(--muted);
-}
+.detail-row span:first-child { color: var(--muted); }
 
 .detail-row strong {
   color: #e5d8de;
@@ -339,9 +325,7 @@ header {
   overflow-wrap: anywhere;
 }
 
-.contract-address {
-  font-size: 11px;
-}
+.contract-address { font-size: 11px; }
 
 .copy-btn {
   border: 0;
@@ -418,68 +402,40 @@ footer p {
     min-height: 70px;
   }
 
-  .logo {
-    width: 52px;
-  }
+  .logo { width: 52px; }
 
-  .nav {
-    display: none;
-  }
+  .nav { display: none; }
 
   .hero {
     min-height: 490px;
     padding: 90px 18px;
   }
 
-  .hero h1 {
-    letter-spacing: 2px;
-  }
+  .hero h1 { letter-spacing: 2px; }
 
-  .hero p {
-    font-size: 14px;
-  }
+  .hero p { font-size: 14px; }
 
-  .market-stats {
-    margin-top: -25px;
-  }
+  .market-stats { margin-top: -25px; }
 
-  .market-item {
-    padding: 17px 8px;
-  }
+  .market-item { padding: 17px 8px; }
 
-  .market-item strong {
-    font-size: 16px;
-  }
+  .market-item strong { font-size: 16px; }
 
-  .section {
-    padding: 45px 0;
-  }
+  .section { padding: 45px 0; }
 
-  .chart-container iframe {
-    height: 460px;
-  }
+  .chart-container iframe { height: 460px; }
 
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
+  .card-grid { grid-template-columns: 1fr; }
 
-  .links-grid {
-    grid-template-columns: repeat(2,1fr);
-  }
+  .links-grid { grid-template-columns: repeat(2,1fr); }
 
-  .detail-row {
-    font-size: 11px;
-  }
+  .detail-row { font-size: 11px; }
 
-  .contract-address {
-    font-size: 9px;
-  }
+  .contract-address { font-size: 9px; }
 }
 
 @media(max-width:380px) {
-  .links-grid {
-    grid-template-columns: 1fr;
-  }
+  .links-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -525,8 +481,7 @@ footer p {
        BUY PRALMYX
     </a>
 
-    <a class="btn" href="#about"
-       style="background:transparent;">
+    <a class="btn" href="#about" style="background:transparent;">
        EXPLORE PRALMYX
     </a>
   </div>
@@ -538,7 +493,7 @@ footer p {
 <div class="market-stats">
 
   <div class="market-item">
-    <small>PMА PRICE (USD)</small>
+    <small>PMA PRICE (USD)</small>
     <strong id="price">Loading...</strong>
   </div>
 
